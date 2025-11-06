@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 369778968}
   - component: {fileID: 369778967}
   - component: {fileID: 369778972}
+  - component: {fileID: 369778973}
   m_Layer: 0
   m_Name: mouse
   m_TagString: Untagged
@@ -277,6 +278,27 @@ MonoBehaviour:
   availableRooms:
   - {fileID: 4264396578694844877, guid: df54f619a441e1b439e28358bb59d092, type: 3}
   currentRooms: []
+--- !u!95 &369778973
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369778966}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7cee1665a4f094d4c99c54a535ead889, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 1
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &381254490
 GameObject:
   m_ObjectHideFlags: 0

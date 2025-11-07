@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class MouseController : MonoBehaviour
 {
@@ -13,6 +15,8 @@ public class MouseController : MonoBehaviour
     private Animator mouseAnimator;
     public ParticleSystem jetpack;
     private bool isDead = false;
+    private uint coins = 0;
+    public TextMeshProUGUI coinsCollectedLabel;
 
     void Start()
     {
@@ -64,12 +68,27 @@ public class MouseController : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collider)
     {
-        HitByLaser(collider);
+        if (collider.gameObject.CompareTag("Coin"))
+        {
+            CollectCoin(collider);
+        }
+
+        else
+        {
+            HitByLaser(collider);
+        }        
     }
 
     void HitByLaser(Collider2D laserCollider)
     {
         isDead = true;
         mouseAnimator.SetBool("isDead", true);
+    }
+
+    void CollectCoin(Collider2D coinCollider)
+    {
+        coins++;
+        coinsCollectedLabel.text = coins.ToString();
+        Destroy(coinCollider.gameObject);
     }
 }

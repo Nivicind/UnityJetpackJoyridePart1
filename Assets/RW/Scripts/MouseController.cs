@@ -23,12 +23,16 @@ public class MouseController : MonoBehaviour
     public AudioSource jetpackAudio;
     public AudioSource footstepsAudio;
     public ParallaxScroll parallax;
+    public GameObject restartDialog; 
+
 
     void Start()
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
         mouseAnimator = GetComponent<Animator>();
         mouseAnimator = GetComponent<Animator>();
+        restartDialog.SetActive(false);
+
     }
 
     void FixedUpdate()
@@ -104,6 +108,8 @@ public class MouseController : MonoBehaviour
 
         isDead = true;
         mouseAnimator.SetBool("isDead", true);
+        restartDialog.SetActive(true);
+
     }
 
     void CollectCoin(Collider2D coinCollider)
@@ -116,7 +122,11 @@ public class MouseController : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene("RocketMouse");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void ExitToMenu() 
+    {
+        SceneManager.LoadScene("MenuScene");
     }
     void AdjustFootstepsAndJetpackSound(bool jetpackActive)
     {
